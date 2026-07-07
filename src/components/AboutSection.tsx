@@ -34,7 +34,7 @@ export default function AboutSection() {
         <div className="md:col-span-4 space-y-4">
           <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group">
             <img
-              src="/Images/Namami-Headshot.jpeg"
+              src={`${import.meta.env.BASE_URL}Images/Namami-Headshot.jpeg`}
               alt="Namami Diwan"
               className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.03]"
               referrerPolicy="no-referrer"
