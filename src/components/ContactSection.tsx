@@ -133,7 +133,7 @@ export default function ContactSection() {
               className="mt-6 px-5 py-2.5 bg-[#606C38] hover:bg-[#4F592E] text-stone-100 text-sm font-medium rounded-xl transition-colors cursor-pointer"
               id="send-another-btn"
             >
-              Send Another Message
+              Done
             </button>
           </motion.div>
         ) : (

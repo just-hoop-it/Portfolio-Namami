@@ -18,7 +18,41 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="space-y-16"
     >
+      
       {/* Editorial Profile Header */}
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-6">
+        
+        {/* Text content */}
+        <div className="md:col-span-8 space-y-6">
+          <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
+            Namaste!
+          </h1>
+          
+          <p className="font-serif text-2xl md:text-3xl text-stone-700 leading-snug max-w-2xl font-light">
+            {headline}
+          </p>
+          
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-2xl font-normal">
+            {bio}
+          </p>
+        </div>
+
+        {/* Headshot Card */}
+        <div className="md:col-span-4">
+          <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group aspect-[4/5]">
+            <img
+              src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
+              alt="Namami Diwan"
+              className="w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.03]"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 border border-black/5 rounded-3xl pointer-events-none" />
+          </div>
+        </div>
+
+      </section>
+
+      {/* Editorial Profile Header 
       <section className="space-y-6 pt-6">
         
         <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
@@ -33,7 +67,6 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
           {bio}
         </p>
         
-        {/* Headshot Card */}
         <div className="md:col-span-4 space-y-4">
           <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group">
             <img
@@ -42,11 +75,11 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
               className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.03]"
               referrerPolicy="no-referrer"
             />
-            {/* Elegant vignette or inner border overlay */}
+
             <div className="absolute inset-0 border border-black/5 rounded-3xl pointer-events-none" />
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Featured Projects List */}
       <section className="space-y-8">
