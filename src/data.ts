@@ -6,39 +6,15 @@ export const bio = "My work spans robotics, embedded systems, CAD modeling, and 
 
 export const contactInfo = {
   email: "diwannamami24@gmail.com",
-  github: "https://github.com/namamidiwan", 
-  linkedin: "https://linkedin.com/in/namami-diwan",
+  github: "https://github.com/NamamiDiwan", 
+  linkedin: "https://www.linkedin.com/in/namami-diwan-a483a9342/",
 };
 
 export const contactConfig = {
   // Free Access Key from Web3Forms (https://web3forms.com)
   // Submissions will be sent to diwannamami24@gmail.com
-  web3formsAccessKey: "YOUR_ACCESS_KEY_HERE",
+  web3formsAccessKey: "7e02657a-d15d-43cf-ad74-03cd9a39f848",
 };
-
-export const flags = [
-  {
-    id: "social-links",
-    field: "Social Links",
-    description: "GitHub and LinkedIn URLs are set to standard username patterns based on your name.",
-    currentValue: `${contactInfo.github} and ${contactInfo.linkedin}`,
-    suggestedAction: "Update in `/src/data.ts` under `contactInfo` to match your actual profile links."
-  },
-  {
-    id: "project-links",
-    field: "Project Document Links",
-    description: "We added placeholder URLs for your ABU Robocon Certificate, Weed Detection Report, Energy Harvesting suspension Model, and FOSSEE IIT Bombay comparisons.",
-    currentValue: "Mock placeholders (e.g. `https://example.com/certificate`)",
-    suggestedAction: "Update the `links` arrays in `/src/data.ts` under `projects` with the actual file or certificate hosting URLs."
-  },
-  {
-    id: "contact-form-key",
-    field: "Contact Form Key",
-    description: "Web3Forms Access Key is set to placeholder value.",
-    currentValue: "YOUR_ACCESS_KEY_HERE",
-    suggestedAction: "Get a free access key at https://web3forms.com and paste it in `src/data.ts` under `contactConfig.web3formsAccessKey` so you get emails instantly upon form submission!"
-  }
-];
 
 export const education: Education[] = [
   {
@@ -94,12 +70,14 @@ export const projects: Project[] = [
     title: "Basketball Playing Robot | ABU Robocon 2025",
     association: "IIITDM Jabalpur Robotics Team",
     description: [
-      "Reached National Finals in the prestigious Asia-Pacific robotics competition (ABU Robocon).",
-      "Designed, manufactured, and wired two precise teleoperated robots optimized for high-performance precision tasks (handling, shooting, and scoring basketballs under match constraints)."
+      "Reached National Finals in the prestigious Asia-Pacific robotics competition (ABU Robocon), held at Indian Institute of Technology (IIT) Delhi.",
+      "Our team 'Aikyam'designed, manufactured, and wired two teleoperated robots for playing basketball. They were optimized for ball handling, shooting, and passing basketballs under match constraints.",
+      "The basketball matches were live broadcasted on Doordarshan Sports, India, and on YouTube over the channels 'Prasar Bharti' and 'ABU Robocon', showcasing our team's engineering and programming skills to a global audience."
     ],
     tags: ["Robotics", "Embedded C", "CAD Design", "ABU Robocon"],
     links: [
-      { label: "Certificate", url: "#" } // FLAGGED: Assumed link
+      { label: "Certificate", url: "https://drive.google.com/file/d/1klwdjI-ktNm8fo-VhokfbfU-LTy0E1GX/view" },
+      { label: "One of the broadcast videos", url: "https://www.youtube.com/live/4qnlwdfnUiQ?si=333DoPtF42nslvOg&t=18775" }
     ],
     featured: true
   },

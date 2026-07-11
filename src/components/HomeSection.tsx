@@ -32,6 +32,19 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
         <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-2xl font-normal">
           {bio}
         </p>
+        
+        {/* Headshot Card */}
+        <div className="md:col-span-4 space-y-4">
+          <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group">
+            <img
+              src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
+              alt="Namami Diwan"
+              className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.03]"
+              referrerPolicy="no-referrer"
+            />
+            {/* Elegant vignette or inner border overlay */}
+            <div className="absolute inset-0 border border-black/5 rounded-3xl pointer-events-none" />
+          </div>
       </section>
 
       {/* Featured Projects List */}

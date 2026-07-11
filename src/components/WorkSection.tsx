@@ -96,13 +96,15 @@ export default function WorkSection() {
               </ul>
             </div>
 
-            {/* Interactive Document Links block (including clean flagging indicators!) */}
+            {/* Interactive Document Links block*/}
             {project.links && project.links.length > 0 && (
               <div className="flex flex-wrap gap-4 pt-4 border-t border-stone-200/50">
                 {project.links.map((link, lIdx) => (
                   <a
                     key={lIdx}
                     href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={(e) => {
                       if (link.url === '#') {
                         e.preventDefault();
