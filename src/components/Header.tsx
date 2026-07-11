@@ -20,7 +20,7 @@ export default function Header({ currentTab, setCurrentTab }: HeaderProps) {
         >
           <div>
             <span className="font-serif text-xl font-medium tracking-tight block text-stone-900 group-hover:text-[#606C38] transition-colors">
-              Namami
+              ND
             </span>
           </div>
         </button>
