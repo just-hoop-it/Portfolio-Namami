@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { projects, name, headline, bio } from '../data';
+import { projects, name, headline, bio, slugify } from '../data';
 
 interface HomeSectionProps {
   setCurrentTab: (tab: string) => void;
@@ -23,7 +23,7 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-6">
         
         {/* Text content */}
-        <div className="md:col-span-8 space-y-6">
+        <div className="md:col-span-7 space-y-6">
           <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
             Namaste!
           </h1>
@@ -38,7 +38,7 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
         </div>
 
         {/* Headshot Card */}
-        <div className="md:col-span-4">
+        <div className="md:col-span-5">
           <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group aspect-[4/5]">
             <img
               src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
@@ -52,34 +52,6 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
 
       </section>
 
-      {/* Editorial Profile Header 
-      <section className="space-y-6 pt-6">
-        
-        <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
-          Namaste!
-        </h1>
-        
-        <p className="font-serif text-2xl md:text-3xl text-stone-700 leading-snug max-w-2xl font-light">
-          {headline}
-        </p>
-        
-        <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-2xl font-normal">
-          {bio}
-        </p>
-        
-        <div className="md:col-span-4 space-y-4">
-          <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group">
-            <img
-              src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
-              alt="Namami Diwan"
-              className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.03]"
-              referrerPolicy="no-referrer"
-            />
-
-            <div className="absolute inset-0 border border-black/5 rounded-3xl pointer-events-none" />
-          </div>
-        </div>
-      </section>*/}
 
       {/* Featured Projects List */}
       <section className="space-y-8">
@@ -123,13 +95,31 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
               </div>
 
               <button
-                onClick={() => setCurrentTab('work')}
+                onClick={() => {
+                  setCurrentTab('work');
+                  // wait for the work tab to render, then scroll to the project
+                  requestAnimationFrame(() => {
+                    setTimeout(() => {
+                      const el = document.getElementById(`project-${slugify(project.title)}`);
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                  });
+                }}
                 className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm"
                 aria-label={`View ${project.title}`}
                 id={`featured-view-${idx}`}
               >
                 <ArrowRight className="w-5 h-5" />
               </button>
+
+              {/*<button
+                onClick={() => setCurrentTab('work')}
+                className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm"
+                aria-label={`View ${project.title}`}
+                id={`featured-view-${idx}`}
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>*/}
             </motion.div>
           ))}
         </div>

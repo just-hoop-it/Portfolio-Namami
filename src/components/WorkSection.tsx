@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ExternalLink, Layers, Cpu, Code, HelpCircle } from 'lucide-react';
 import { projects } from '../data';
 import { Project } from '../types';
+import { slugify } from '../data';
 
 export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
@@ -55,6 +56,7 @@ export default function WorkSection() {
         {filteredProjects.map((project, idx) => (
           <motion.div
             key={project.title}
+            id={`project-${slugify(project.title)}`}
             layout
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

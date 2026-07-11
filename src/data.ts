@@ -16,6 +16,9 @@ export const contactConfig = {
   web3formsAccessKey: "7e02657a-d15d-43cf-ad74-03cd9a39f848",
 };
 
+export const slugify = (title: string) =>
+  title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
 export const education: Education[] = [
   {
     institution: "IIITDM Jabalpur",
