@@ -45,6 +45,7 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
             {/* Elegant vignette or inner border overlay */}
             <div className="absolute inset-0 border border-black/5 rounded-3xl pointer-events-none" />
           </div>
+        </div>
       </section>
 
       {/* Featured Projects List */}
