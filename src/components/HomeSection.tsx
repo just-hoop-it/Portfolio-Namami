@@ -18,12 +18,12 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="space-y-16"
     >
-      
+
       {/* Editorial Profile Header */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-6">
         
         {/* Text content */}
-        <div className="md:col-span-8 space-y-6">
+        <div className="md:col-span-9 space-y-6">
           <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
             Namaste!
           </h1>
@@ -38,7 +38,7 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
         </div>
 
         {/* Headshot Card */}
-        <div className="md:col-span-4">
+        <div className="md:col-span-3">
           <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group aspect-[4/5]">
             <img
               src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
