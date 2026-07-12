@@ -195,13 +195,13 @@ export default function WorkSection({ targetProjectTitle, clearTargetProject }: 
                     className="inline-flex items-center gap-1.5 text-xs font-mono text-[#606C38] hover:text-stone-900 hover:underline transition-colors"
                     id={`link-${idx}-${lIdx}`}
                   >
-                    {/*<ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                     <span>{link.label}</span>
                     {link.url === '#' && (
                       <span className="text-[9px] px-1 py-0.2 bg-[#FEFAE0] text-[#606C38] rounded border border-[#FEFAE0] font-sans">
                         Placeholder
                       </span>
-                    )}*/}
+                    )}
                   </a>
                 ))}
               </div>

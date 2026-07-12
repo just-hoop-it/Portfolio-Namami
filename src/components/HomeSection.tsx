@@ -8,7 +8,7 @@ interface HomeSectionProps {
   onProjectClick?: (projectTitle: string) => void;
 }
 
-export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
+export default function HomeSection({ setCurrentTab, onProjectClick }: HomeSectionProps) {
   const featuredProjects = projects.filter((p) => p.featured);
   
   return (
@@ -21,10 +21,10 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
     >
 
       {/* Editorial Profile Header */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-6">
+      <section className="grid grid-cols-1 md:grid-cols-24 gap-8 items-center pt-6">
         
         {/* Text content */}
-        <div className="md:col-span-7 space-y-6">
+        <div className="md:col-span-17 space-y-6">
           <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-stone-900 leading-[1.05]">
             Namaste!
           </h1>
@@ -39,7 +39,7 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
         </div>
 
         {/* Headshot Card */}
-        <div className="md:col-span-5">
+        <div className="md:col-span-7">
           <div className="relative overflow-hidden rounded-3xl border border-stone-200/80 bg-stone-100 shadow-sm group aspect-[4/5]">
             <img
               src={`${import.meta.env.BASE_URL}Images/Namami-Diwan.jpeg`}
@@ -53,8 +53,70 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
 
       </section>
 
-
       {/* Featured Projects List */}
+      <section className="space-y-8">
+        <div className="flex items-center justify-between">
+          <h2 className="font-serif text-3xl font-normal text-stone-900">
+            Selected Works
+          </h2>
+          <button
+            onClick={() => setCurrentTab('work')}
+            className="group flex items-center gap-1 text-sm font-medium text-[#606C38] hover:text-stone-900 transition-colors"
+            id="all-works-btn"
+          >
+            All projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </button>
+        </div>
+ 
+        <div className="grid grid-cols-1 gap-8">
+          {featuredProjects.map((project, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -3 }}
+              className="p-6 bg-stone-50 hover:bg-stone-100/50 border border-stone-200/60 rounded-3xl transition-all group flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+            >
+              <div className="space-y-3 max-w-xl">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 3).map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2.5 py-0.5 bg-white border border-stone-200 text-stone-500 font-mono text-[10px] uppercase rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 
+                  onClick={() => onProjectClick ? onProjectClick(project.title) : setCurrentTab('work')}
+                  className="font-serif text-2xl font-medium text-stone-900 group-hover:text-[#606C38] transition-colors cursor-pointer"
+                >
+                  {project.title}
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed line-clamp-2">
+                  {project.description[0]}
+                </p>
+              </div>
+ 
+              <button
+                onClick={() => onProjectClick ? onProjectClick(project.title) : setCurrentTab('work')}
+                className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm cursor-pointer"
+                aria-label={`View ${project.title}`}
+                id={`featured-view-${idx}`}
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+    </motion.div>
+  );
+}
+
+
+
+      {/* Featured Projects List 
       <section className="space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="font-serif text-3xl font-normal text-stone-900">
@@ -113,4 +175,4 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
 
     </motion.div>
   );
-}
+}*/}
