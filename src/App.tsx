@@ -9,6 +9,12 @@ import ContactSection from './components/ContactSection';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>('home');
+  const [targetProjectTitle, setTargetProjectTitle] = useState<string | null>(null);
+
+  const handleProjectClick = (title: string) => {
+    setTargetProjectTitle(title);
+    setCurrentTab('work');
+  };
 
   const renderSection = () => {
     switch (currentTab) {
@@ -21,7 +27,7 @@ export default function App() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
-            <HomeSection setCurrentTab={setCurrentTab} />
+            <HomeSection setCurrentTab={setCurrentTab} onProjectClick={handleProjectClick} />
           </motion.div>
         );
       case 'work':
@@ -33,7 +39,10 @@ export default function App() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
-            <WorkSection />
+            <WorkSection
+              targetProjectTitle={targetProjectTitle}
+              clearTargetProject={() => setTargetProjectTitle(null)}
+            />
           </motion.div>
         );
       case 'about':

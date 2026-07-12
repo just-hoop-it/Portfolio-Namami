@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { projects, name, headline, bio, slugify } from '../data';
+import { projects, name, headline, bio } from '../data';
 
 interface HomeSectionProps {
   setCurrentTab: (tab: string) => void;
+  onProjectClick?: (projectTitle: string) => void;
 }
 
 export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
@@ -86,40 +87,25 @@ export default function HomeSection({ setCurrentTab }: HomeSectionProps) {
                     </span>
                   ))}
                 </div>
-                <h3 className="font-serif text-2xl font-medium text-stone-900 group-hover:text-[#606C38] transition-colors">
+                <h3 
+                  onClick={() => onProjectClick ? onProjectClick(project.title) : setCurrentTab('work')}
+                  className="font-serif text-2xl font-medium text-stone-900 group-hover:text-[#606C38] transition-colors cursor-pointer"
+                >
                   {project.title}
                 </h3>
                 <p className="text-sm text-stone-600 leading-relaxed line-clamp-2">
                   {project.description[0]}
                 </p>
               </div>
-
+ 
               <button
-                onClick={() => {
-                  setCurrentTab('work');
-                  // wait for the work tab to render, then scroll to the project
-                  requestAnimationFrame(() => {
-                    setTimeout(() => {
-                      const el = document.getElementById(`project-${slugify(project.title)}`);
-                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 50);
-                  });
-                }}
-                className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm"
+                onClick={() => onProjectClick ? onProjectClick(project.title) : setCurrentTab('work')}
+                className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm cursor-pointer"
                 aria-label={`View ${project.title}`}
                 id={`featured-view-${idx}`}
               >
                 <ArrowRight className="w-5 h-5" />
               </button>
-
-              {/*<button
-                onClick={() => setCurrentTab('work')}
-                className="p-3 bg-white rounded-full border border-stone-200/80 text-stone-500 group-hover:text-white group-hover:bg-[#606C38] group-hover:border-[#606C38] transition-all self-end md:self-auto shadow-sm"
-                aria-label={`View ${project.title}`}
-                id={`featured-view-${idx}`}
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>*/}
             </motion.div>
           ))}
         </div>
